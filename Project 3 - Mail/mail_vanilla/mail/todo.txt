@@ -1,0 +1,2 @@
+- better way for doing colors
+- add archive and un archive button

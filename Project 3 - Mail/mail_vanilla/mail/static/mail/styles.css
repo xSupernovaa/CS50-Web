@@ -1,0 +1,42 @@
+@keyframes fade 
+{
+    0% {
+        opacity: 1;
+        height: 100%;
+        line-height: 100%;
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+    75% {
+        opacity: 0;
+        height: 100%;
+        line-height: 100%;
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+    100% {
+        opacity: 0;
+        height: 0px;
+        line-height: 0px;
+        padding: 0px;
+        margin-bottom: 0px;
+    }
+}
+
+textarea {
+    min-height: 400px;
+}
+
+
+.card-title, .card-subtitle {
+    margin: 10px;
+}
+
+.card
+{
+    margin: 10px;
+    animation: fade 2s;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}  
+

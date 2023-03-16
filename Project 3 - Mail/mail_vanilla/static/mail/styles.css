@@ -1,0 +1,8 @@
+textarea {
+    min-height: 400px;
+}
+
+
+.card-title, .card-subtitle {
+    margin: 10px;
+}
