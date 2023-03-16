@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+        <title>Google 2 Advanced Search</title>
+        <link rel="icon" href="assets/favicon.ico"> 
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body style="margin: 30px;">
+
+
+        <header id="advanced_header">
+            <a href="index.html">
+                <img src="assets/img/google_logo.png" width="74" height="25">
+            </a>
+            <h3 style="font-weight: normal; color: rgb(223, 50, 50);">Advanced Search</h3>
+
+        </header>
+        
+        <form action="https://www.google.com/search" autocomplete="off">
+
+            <!-- find pages with... -->
+            <section>
+                <h4 style="font-weight: normal; padding-bottom: 10px; font-size: large;">Find pages with...</h4>
+                <div class="advanced_container">
+                    <span>all these words:</span>
+                    <input type="text" name="as_q">
+                    <small>Type the important words: tri-colour rat terrier</small>
+                </div>
+
+                <div class="advanced_container">
+                    <span>this exact word or phrase:</span>
+                    <input type="text" name="as_epq">
+                    <small>Put exact words in quotes: "rat terrier"</small>
+                </div>
+                <div class="advanced_container">
+                    <span>any of these words:</span>
+                    <input type="text" name="as_oq">
+                    <small>Type OR between all the words you want: miniature OR standard</small>
+                </div>
+                <div class="advanced_container">
+                    <span>none of these words:</span>
+                    <input type="text" name="as_eq">
+                    <small>Put a minus sign just before words that you don't want: -rodent, -"Jack Russell"</small>
+                </div>
+                <div class="advanced_container">
+                    <span></span>
+                    <button type="submit">Advanced Search</button>
+                </div>
+                <div class="advanced_container" style="border-bottom: 1px solid silver;">
+                
+
+                </div>
+            </section>
+        </form>
+
+    </body>
+</html>

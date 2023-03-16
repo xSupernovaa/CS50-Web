@@ -1,0 +1,24 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Watchlist</h2>
+
+    {% for listing in watchlist %}
+        <div class="listing border rounded">
+            <img src="{{ listing.image_url }}" class="border">
+            <div style="padding: 20px;">
+                <a href="/listing/{{listing.id}}"><h3>{{ listing.title }}</h3></a>
+                <p>{{ listing.description }}</p>
+                <strong>Starting price: {{ listing.starting_price }}$</strong>
+
+                {% if listing.seller == user %}
+                    <p>this yours dawg</p>
+                {% else %}
+                    <p>{{ listing.seller }}</p>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+
+    
+{% endblock %}

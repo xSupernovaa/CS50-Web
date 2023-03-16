@@ -1,0 +1,92 @@
+{% extends "auctions/layout.html" %}
+
+
+{% block body %}
+
+<div class="listing">
+    <img src="{{ listing.image_url }}" class="border">
+    <div style="padding: 20px;">
+        <h3>{{ listing.title }}</h3>
+        <p>{{ listing.description }}</p>
+        <strong>Starting price: {{ listing.starting_price }}$</strong>
+
+        {% if listing.seller == user %}
+            <p>this yours dawg</p>
+        {% else %}
+            <p>{{ listing.seller }}</p>
+        {% endif %}
+        <p>Listed {{ listing.created|timesince }} ago</p>
+        
+        <div class="btn-group">
+            {% if user.is_authenticated %}
+            {% if not in_watch_list %}
+                <form action="{{listing.id}}/add" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Add to watchlist</button>
+                </form>
+            {% else %}
+                <form action="{{listing.id}}/remove" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-secondary">Remove from watchlist</button>
+                </form>
+            {% endif %}
+            &nbsp 
+            {% if is_owner %}
+                <form action="{{listing.id}}/bid/close" method="post">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-danger" value="Close bid"></input>
+                </form>
+            {% else %}
+                <form action="{{listing.id}}/bid" method="post">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-info" value="Place Bid"></input>
+                    <input type="number" name="bid">
+                </form>
+            {% endif %}
+    
+        {% endif %}
+    
+        </div>
+    
+
+    </div>
+</div>
+
+
+
+
+<h4 style="margin: 10px;">Bids</h4>
+
+{% for bid in listing.bids.all|dictsortreversed:"price" %}
+    <div class="d-flex flex-row justify-content-between card p-3" style="margin: 10px;">
+        <p>{{ bid.bidder }} : <b>{{ bid.price }}</b>$</p>
+        <small>{{ bid.created|timesince }} ago</small>
+    </div>
+{% endfor %}
+
+
+<h4 style="margin: 10px;">Comments</h4>
+{% for comment in listing.comments.all %}
+    <div class="card p-3"; style="margin: 10px;">
+
+        <div class="d-flex justify-content-between align-items-center">
+
+                <div class="user d-flex flex-row align-items-center">
+
+                    <span>
+                        <small class="font-weight-bold text-primary">{{ comment.author }}:</small>
+                        <small class="font-weight-bold">{{ comment.content }}</small>
+                    </span>
+                
+                </div>
+
+                <small>{{ comment.created|timesince }} ago</small>
+
+            </div>
+            
+    </div>
+{% endfor %}
+
+
+
+{% endblock %}

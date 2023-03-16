@@ -1,0 +1,15 @@
+- present error when bid is not valid
+
+- Close listing 
+    - set it to be in active and transfer the list to the winner if they exist
+    - in listing page, annonuce winner
+    - make listing not active
+
+- Place comment 
+
+
+- make repetitve listings loop a component 
+- do 10px margin in a cleaner way
+- Don't allow duplicate listings 
+- Allow remove comment if user is author
+- Add favico
